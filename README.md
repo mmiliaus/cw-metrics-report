@@ -5,7 +5,23 @@ Helps generating AWS CloudWatch reports by providing a beautiful DSL for it.
 ## Usage
 
 ```php
+
+use CWMetricsReport\Report;
+
+// initialize a CloudWatchClient
+$client = CloudWatchClient::factory(array(
+    'key'    => $awsConfig['key'],
+    'secret' => $awsConfig['secret'],
+    'region' => $awsConfig['region']
+));
+
+// create a report instance
+$report = new Report($client);
+
+// describe your report preferences
 $stats = $report->
+
+    // global parameters
     setStartTime(
         time() - (3600 * 24)
     )->
@@ -13,15 +29,19 @@ $stats = $report->
         time()
     )->
     setPeriod(3600)->
-    addDimension('AutoScalingGroupName', $this->awsConfig['as_group_name'])->
+    addDimension('AutoScalingGroupName', $awsConfig['as_group_name'])->
+
+    // attach some metrics (`Namespace::MetricName`)
     addMetric('AWS/EC2::CPUUtilization')->
     addMetric('System/Linux::DiskSpaceUtilization')->begin()->
+        // add custom parameters for a specific metric
         addDimension('Filesystem', '/dev/xvda1')->
         addDimension('MountPath', '/')->
     end()->
     addMetric('System/LAMP::ApachePHPHeartbeat')->begin()->
         aggregateBy('Minimum')->
     end()->
+
 getMonGetStatsParamArray();
 ```
 
