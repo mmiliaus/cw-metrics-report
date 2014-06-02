@@ -2,7 +2,7 @@
     "name": "cw-metrics-report/cw-metrics-report",
     "description": "Helps generating AWS CloudWatch reports by providing a beautiful DSL for it.",
     "type": "library",
-    "license": "MIT",
+    "license": "WTFPL",
     "authors": [
         {
             "name": "Martynas Miliauskas",
