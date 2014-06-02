@@ -7,6 +7,7 @@ Helps generating AWS CloudWatch reports by providing a beautiful DSL for it.
 ```php
 
 use CWMetricsReport\Report;
+use Aws\CloudWatch\CloudWatchClient;
 
 // initialize a CloudWatchClient
 $client = CloudWatchClient::factory(array(
