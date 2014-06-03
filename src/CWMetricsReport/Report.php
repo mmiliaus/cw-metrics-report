@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: mmiliauskass
- * Date: 02/06/2014
- * Time: 11:44
- * To change this template use File | Settings | File Templates.
- */
 
 namespace CWMetricsReport;
 

@@ -1,14 +1,14 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: mmiliauskass
- * Date: 02/06/2014
- * Time: 11:43
- * To change this template use File | Settings | File Templates.
- */
 
 namespace CWMetricsReport;
 
+
+/**
+ * A data structure to hold the parameters, that are passed to the Aws\CloudWatch\CloudWatchClient#getMetricStatistics
+ *
+ * Class MetricFilter
+ * @package CWMetricsReport
+ */
 class MetricFilter
 {
     const AGGREGATE_BY_AVERAGE = 'Average';
